@@ -96,6 +96,8 @@ A server is will receive a request then perform some logic and return a response
 
 It will make it easier to matchup HTTP methods to by using `endpoints` to control what data a front end application can send and ask for.
 
+### Getting Started
+
 First we need to install express into our project to use it.
 
 ```bash
@@ -103,3 +105,23 @@ $ npm install express
 ```
 
 REFER TO THE `serverSetup.js` FILE FOR MORE INFORMATION ABOUT SETTING UP EXPRESS
+
+### Endpoints
+
+Endpoints are what we use to create a way for a front end application to make requests to our server.
+
+To create an endpoint, we will use the object returned from `express()`. This object will have the methods we can use to receieve specifc `RESTful Requests`.
+
+Let's look at the syntax for one:
+
+```javascript
+app.get('/api/users', handlerFunc);
+```
+
+The endpoint is comprised of three parts:
+
+The Method: - this is where we declare what type of request we are expecting. For example: `get`, `post`, `put`, `delete`.
+
+The Path - this is easy to think about as an entrance to our server or a "gate".
+
+The Handler Function - the handler function is the function that will be executed when a request hits this end point.
