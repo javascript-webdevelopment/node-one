@@ -22,7 +22,7 @@ The server is also known as the `back-end` of the application.
 
 We will be building our servers with `Node`.
 
-![Client and Servers](images/clienttoserver.png)
+![Client and Servers](images/clientstoserver.png)
 
 ## Node
 
