@@ -48,7 +48,7 @@ This will turn the terminal into an interactive javascript environment.
 
 ![node terminal](images/terminal.png)
 
-### Running A Jaavascript File
+### Running A Javascript File
 
 We can also execute a JS file by running the terminal command
 
@@ -85,6 +85,25 @@ $ npm init -y
 ```
 
 This command will initialize a `package.json` file for us so we can install packages from `npm` into our project.
+
+This file will look something like this:
+
+```json
+{
+  "name": "node-one",
+  "version": "1.0.0",
+  "description": "In this lecture we talk about Node.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+```
 
 ## Express
 
@@ -125,3 +144,47 @@ The Method: - this is where we declare what type of request we are expecting. Fo
 The Path - this is easy to think about as an entrance to our server or a "gate".
 
 The Handler Function - the handler function is the function that will be executed when a request hits this end point.
+
+## Handler Functions
+
+`Handler Functions` are the functions that we use to handle a request that is made to our server.
+
+This function receives two objects as default arguments. These objects are the `request` and `response` object.
+
+```javascript
+app.get('/api/users', (req, res) => {
+    // logic here to handle the req
+})
+```
+
+> Note: req will always be before res
+
+### Request Object
+
+The `req` object is an object that will contain information about the incoming request. This where we can access information from the `query`, the `params`, and the `body` of the request.
+
+
+
+### Response Object
+
+The `res` object is an object that we will use to set information about the response and send it back.
+
+This object will have built in methods that we can use to add information to the response that we will send back.
+
+#### Sending A Response
+
+`res.send()` is a function that we can use so what ever is passed in as an argument to function will be sent back as the `response`.
+
+```javascript
+res.send('Hello');
+```
+
+Above, we are sending a string of hello back. This is what will fill the `response.data` object on the front end.
+
+#### Setting A Status Code For The Response
+
+We can set custom status codes for the response by using the `.status()` method before we send back a response. We will pass in the status code that we want this end point to respond with.
+
+```javascript
+res.status(200).send(users);
+```
