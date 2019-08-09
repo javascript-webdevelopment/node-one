@@ -161,8 +161,38 @@ app.get('/api/users', (req, res) => {
 
 ### Request Object
 
-The `req` object is an object that will contain information about the incoming request. This where we can access information from the `query`, the `params`, and the `body` of the request.
+The `req` object is an object that will contain information about the incoming request. This where we can access information from the `query`, and the `params` of the request.
 
+`req.params` This is the object that we can use to get the data from the params of a request.
+
+We declare the param variable to use in the `path` of our endpoint. We will prefix the param with a colon.
+
+```javascript
+app.get('/api/users/:id, (req, res) => {
+    // we can access what ever info is sent through the id param
+    console.log(req.params.id)
+});
+```
+
+Using the colon is like telling javascript to treat it as a placeholder, and what ever is sent through we can access it on the `req.params` object.
+
+`req.query` This is the object that we can use to get data from the queries of a request.
+
+We will not add any extra information to our `path` when using a query, unlike params.
+
+```javascript
+// front end request w/ query
+axios.get('/api/users/?name=tayte)
+
+// back end endpoint
+app.get('/api/users', (req, res) => {
+    // notice how we dont set anything special in our path
+
+    // we can access the name tayte from the query using the query obj
+    console.log(req.query.name) // this will log tayte
+})
+
+```
 
 
 ### Response Object
